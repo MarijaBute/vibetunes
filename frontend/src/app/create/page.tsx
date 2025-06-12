@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setResponses, setPlaylist, setLoading, setError } from '@/store/slices/playlistSlice'
+import { setResponses, setPlaylist, setLoading, setError } from '@/store/slices/playlistSlice';
 import { RootState } from '@/store/store';
 import { Music, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import Link from 'next/link';
@@ -93,7 +93,7 @@ export default function CreatePage() {
         const playlistData = await generatePlaylistSuggestions(responses as UserResponse);
         dispatch(setPlaylist({
           title: `Your ${responses.mood} ${responses.activity} Playlist`,
-          songs: playlistData,
+          songs: playlistData.songs, // Expect { title, artist, album, spotifyUrl }
         }));
       } catch (err) {
         dispatch(setError('Failed to generate playlist. Please try again.'));
@@ -113,7 +113,7 @@ export default function CreatePage() {
       const playlistData = await generatePlaylistSuggestions(responses as UserResponse);
       dispatch(setPlaylist({
         title: `Your ${responses.mood} ${responses.activity} Playlist`,
-        songs: playlistData,
+        songs: playlistData.songs,
       }));
     } catch (err) {
       dispatch(setError('Failed to generate playlist. Please try again.'));
@@ -180,7 +180,7 @@ export default function CreatePage() {
         {loading ? (
           <Loading />
         ) : playlist ? (
-          <Playlist playlist={playlist} onRegenerate={regeneratePlaylist} />
+          <Playlist pagePlaylist={playlist} onRegenerate={regeneratePlaylist} />
         ) : (
           <div className='mood-card max-w-4xl w-full relative'>
             <Link href='/' className='absolute top-4 right-4'>
@@ -190,7 +190,7 @@ export default function CreatePage() {
             <div className='flex justify-between items-center mb-6'>
               <p className='text-gray-500'>Question {step + 1} of {questions.length}</p>
               {responses.mood && (
-                <span className='bg-white/20 text-white px-3 py-1 rounded-full'>
+                <span className='bg-white/20 text-white px-2 py-1 rounded'>
                   Your mood: {responses.mood}
                 </span>
               )}

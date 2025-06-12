@@ -23,17 +23,27 @@ export type UserResponses = {
   popularity?: string;
 };
 
+export interface UserResponse {
+  mood: string;
+  genres: string[];
+  tempo: string;
+  era: string;
+  activity: string;
+  artists: { love: string; avoid: string };
+}
+
 export interface Song {
   title: string;
   artist: string;
-  videoId: string;
-  videoUrl: string;
-  description?: string;
+  album?: string;
+  spotifyUrl?: string;
 }
+
 
 export interface Question {
   id: keyof UserResponse;
   text: string;
-  type: "single" | "multiple" | "text" | "slider";
+  type: 'single' | 'multiple' | 'slider' | 'text';
   options?: string[];
 }
+
