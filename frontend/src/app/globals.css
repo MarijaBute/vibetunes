@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gray-100 min-h-screen;
+}
+
+.gradient-bg {
+  @apply bg-gradient-to-r from-blue-500 to-purple-600;
+}
+
+.app-background {
+  @apply min-h-screen transition-all duration-500;
+}
+
+.bg-mood-happy {
+  @apply bg-yellow-400;
+}
+
+.bg-mood-sad {
+  @apply bg-blue-600;
+}
+
+.bg-mood-energetic {
+  @apply bg-red-500;
+}
+
+.bg-mood-calm {
+  @apply bg-green-400;
+}
+
+.bg-mood-focused {
+  @apply bg-indigo-500;
+}
+
+.bg-mood-angry {
+  @apply bg-red-700;
+}
+
+.bg-mood-romantic {
+  @apply bg-pink-500;
+}
+
+.mood-card {
+  @apply bg-white/90 p-8 rounded-xl shadow-xl max-w-4xl w-full;
+}
+
+.mood-option {
+  @apply p-4 rounded-lg flex flex-col items-center justify-center transition-all;
+}
+
+.mood-option-selected {
+  @apply text-white shadow-lg transform scale-105;
+}
+
+.glass-effect {
+  @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-lg;
+}
+
+.btn-primary {
+  @apply bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-all;
+}
+
+.btn-secondary {
+  @apply bg-transparent border border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-all;
+}
+
+.btn-cancel {
+  @apply text-gray-500 hover:text-gray-300 flex items-center;
+}
+
+.btn-next {
+  @apply bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-all flex items-center;
+}
+
+.bg-hero-gradient {
+  @apply bg-gradient-to-b from-gray-900 to-gray-800 min-h-screen;
+}
+
+.video-background {
+  @apply absolute inset-0 w-full h-full object-cover opacity-20;
+}
+
+.card {
+  @apply bg-white/10 p-6 rounded-lg;
+}
+
+.animate-spin-slow {
+  animation: spin 3s linear infinite;
+}
+
+.animate-sound-wave-1 {
+  animation: soundWave 1.2s ease-in-out infinite;
+}
+
+.animate-sound-wave-2 {
+  animation: soundWave 1s ease-in-out infinite 0.2s;
+}
+
+.animate-sound-wave-3 {
+  animation: soundWave 0.8s ease-in-out infinite 0.4s;
+}
+
+.animate-sound-wave-4 {
+  animation: soundWave 1s ease-in-out infinite 0.6s;
+}
+
+.animate-sound-wave-5 {
+  animation: soundWave 1.2s ease-in-out infinite 0.8s;
+}
+
+@keyframes soundWave {
+  0%, 100% { height: 2rem; }
+  50% { height: 4rem; }
+}
